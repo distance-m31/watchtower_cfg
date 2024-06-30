@@ -1,0 +1,15 @@
+version: "3"
+services:
+  # cavo:
+  #   image: ghcr.io/<org>/<image>:<tag>
+  #   ports:
+  #     - "443:3443"
+  #     - "80:3080"
+  watchtower:
+    image: containrrr/watchtower
+    #environment:
+    #    DOCKER_CONFIG: /config
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/jr/.docker/config.json:/config.json
+    command: --interval 30
